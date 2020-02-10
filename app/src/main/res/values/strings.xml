@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Brochr</string>
+    <string name="product_image">Product image</string>
+    <string name="category_folder_image_description">Fold/Unfold categories</string>
+</resources>
