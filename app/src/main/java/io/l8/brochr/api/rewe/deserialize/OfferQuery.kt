@@ -38,7 +38,7 @@ class OfferQueryDeserializer(val resultReceiver: Shop.OfferQueryResultReceiver) 
                     val offerArray = ArrayList(offerList)
 
                     resultReceiver.onQueryResult(
-                        OfferQueryResult(
+                        OfferQueryResult.Categorized(
                             offerArray,
                             categoryNames.toTypedArray()
                         )
@@ -49,6 +49,6 @@ class OfferQueryDeserializer(val resultReceiver: Shop.OfferQueryResultReceiver) 
             body.close()
         }
 
-        resultReceiver.onQueryResult(OfferQueryResult(null))
+        resultReceiver.onQueryResult(OfferQueryResult.None)
     }
 }

@@ -26,6 +26,11 @@ class Shop(
         }
     }
 
+    override fun equals(shop: io.l8.brochr.models.Shop): Boolean {
+        return name === shop.name && street === shop.street && postalCode === shop.postalCode
+                && city === shop.city
+    }
+
     override fun fetchOffers(receiver: io.l8.brochr.models.Shop.OfferQueryResultReceiver) {
         Request.offerQuery(id, receiver)
     }

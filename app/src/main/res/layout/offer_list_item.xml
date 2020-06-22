@@ -15,8 +15,8 @@
         android:layout_marginTop="8dp"
         android:adjustViewBounds="true"
         android:contentDescription="@string/product_image"
-        app:layout_constraintBottom_toTopOf="@+id/offer_name"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.025"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/ic_launcher_round" />
@@ -34,9 +34,9 @@
         android:textSize="18sp"
         app:layout_constrainedHeight="false"
         app:layout_constraintBottom_toTopOf="@id/offer_price"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/offer_image" />
+        app:layout_constraintEnd_toStartOf="@+id/offer_fav"
+        app:layout_constraintStart_toEndOf="@+id/offer_image"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/offer_price"
@@ -47,8 +47,8 @@
         android:layout_marginEnd="8dp"
         android:textAlignment="center"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/offer_fav"
+        app:layout_constraintStart_toEndOf="@+id/offer_image"
         app:layout_constraintTop_toBottomOf="@id/offer_name" />
 
     <TextView
@@ -63,8 +63,18 @@
         android:textColor="#F44336"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/offer_fav"
+        app:layout_constraintStart_toEndOf="@+id/offer_image"
         app:layout_constraintTop_toBottomOf="@id/offer_price" />
+
+    <CheckBox
+        android:id="@+id/offer_fav"
+        style="?android:attr/starStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

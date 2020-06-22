@@ -9,6 +9,8 @@ interface Shop: Parcelable {
     val city: String
     val imageUrl: String?
 
+    fun equals(shop: Shop): Boolean
+
     fun fetchOffers(receiver: OfferQueryResultReceiver)
     fun hasCategories(): Boolean {
         return false
@@ -19,4 +21,9 @@ interface Shop: Parcelable {
     }
 }
 
-class OfferQueryResult(val offers: ArrayList<Offer>?, val categories: Array<String>? = null)
+sealed class OfferQueryResult {
+    class Categorized(val offers: ArrayList<Offer>, val categories: Array<String>): OfferQueryResult()
+    class NonCategorized(val offers: ArrayList<Offer>): OfferQueryResult()
+    object None: OfferQueryResult()
+    data class Error(val errorMessage: String?): OfferQueryResult()
+}
