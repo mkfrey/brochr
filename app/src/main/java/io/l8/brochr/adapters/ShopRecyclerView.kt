@@ -39,7 +39,7 @@ class ShopViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
 class ShopSearchViewAdapter(private val context: Context) : RecyclerView.Adapter<ShopViewHolder>(), SearchView.OnQueryTextListener,
     ShopViewHolder.OnShopClickListener, ShopSearch.ShopQueryResultReceiver {
-    private var shops: ArrayList<Shop>? = null
+    private var shops: ArrayList<Shop> = arrayListOf()
     private var uiHandler = Handler(context.mainLooper)
 
     override fun onQueryTextSubmit(query: String?): Boolean {
@@ -56,17 +56,14 @@ class ShopSearchViewAdapter(private val context: Context) : RecyclerView.Adapter
     }
 
     override fun onQueryResult(result: ArrayList<Shop>?) {
-        this.shops?.let { shopList ->
-            result?.let {
-                shopList.addAll(it)
-            }
-
-        } ?: run { this.shops = result }
+        result?.let {
+            shops.addAll(it)
+        }
 
         notifyUiHandlerOfChange()    }
 
     private fun clearShopList() {
-        this.shops = null
+        shops.clear()
         notifyUiHandlerOfChange()
     }
 
@@ -82,7 +79,7 @@ class ShopSearchViewAdapter(private val context: Context) : RecyclerView.Adapter
 
     /* Implementation of RecyclerView Adapter */
     override fun getItemCount(): Int {
-        return shops?.count() ?: 0
+        return shops.count()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShopViewHolder {
@@ -92,7 +89,7 @@ class ShopSearchViewAdapter(private val context: Context) : RecyclerView.Adapter
     }
 
     override fun onBindViewHolder(holder: ShopViewHolder, position: Int) {
-        shops?.get(position)?.let {
+        shops[position]?.let {
             holder.bind(it, this)
         }
     }
