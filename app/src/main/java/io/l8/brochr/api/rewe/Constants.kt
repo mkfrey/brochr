@@ -7,7 +7,7 @@ interface Constants {
         const val OFFER_QUERY_URL = "https://mobile-api.rewe.de/products/offer-search?marketId="
         const val MARKET_QUERY_URL = "https://mobile-api.rewe.de/mobile/markets/market-search?query="
         const val RESPONSE_CONTENT_TYPE = "application"
-        const val SHOP_QUERY_RESPONSE_CONTENT_SUBTYPE = "vnd+rewe.mobile+json"
+        const val SHOP_QUERY_RESPONSE_CONTENT_SUBTYPE = "json"
         const val OFFER_QUERY_RESPONSE_CONTENT_SUBTYPE = "json"
     }
 }
