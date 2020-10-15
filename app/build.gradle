@@ -41,7 +41,7 @@ dependencies {
     implementation "androidx.room:room-runtime:$rootProject.roomVersion"
     annotationProcessor "androidx.room:room-compiler:$rootProject.roomVersion" // For Kotlin use kapt instead of annotationProcessor
 
-    implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$rootProject.kotlinSerializationRuntimeVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:$rootProject.kotlinSerializationRuntimeVersion"
     implementation "com.squareup.okhttp3:okhttp:$rootProject.okHttpVersion"
     implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
     annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.glideVersion"

@@ -3,12 +3,12 @@
 buildscript {
 
     ext {
-        kotlinVersion = '1.3.61'
-        kotlinSerializationRuntimeVersion = '0.14.0'
+        kotlinVersion = '1.4.10'
+        kotlinSerializationRuntimeVersion = '1.0.0'
         glideVersion = '4.11.0'
-        roomVersion = '2.2.4'
-        materialVersion = '1.0.0'
-        okHttpVersion = '4.3.1'
+        roomVersion = '2.2.5'
+        materialVersion = '1.2.1'
+        okHttpVersion = '4.9.0'
     }
 
     repositories {

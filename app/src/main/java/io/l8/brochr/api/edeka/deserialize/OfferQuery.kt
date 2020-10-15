@@ -12,7 +12,7 @@ class OfferQueryDeserializer(val resultReceiver: Shop.OfferQueryResultReceiver) 
     override fun onResponse(responseBody: ResponseBody?) {
         responseBody?.string()?.let { body ->
             // TODO: Add JSON check to avoid crash on invalid payload such as a captcha => Check if content type is JSON
-            val deserializationResult = Json.nonstrict.parse(
+            val deserializationResult = Json{ ignoreUnknownKeys = true }.decodeFromString(
                 io.l8.brochr.api.edeka.api_model.OfferQueryResult.serializer(),
                 body
             )

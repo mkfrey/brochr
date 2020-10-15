@@ -12,7 +12,7 @@ class ShopQueryDeserializer(val resultReceiver: ShopSearch.ShopQueryResultReceiv
     override fun onResponse(responseBody: ResponseBody?) {
         responseBody?.string()?.let { bodyString ->
             val deserializationResult =
-                Json.nonstrict.parse(ShopQueryResult.serializer(), bodyString)
+                Json{ ignoreUnknownKeys = true }.decodeFromString(ShopQueryResult.serializer(), bodyString)
 
             val shopList = deserializationResult.response.docs.map { shop ->
                 io.l8.brochr.api.edeka.model.Shop.from(shop)

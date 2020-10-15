@@ -16,7 +16,7 @@ class OfferQueryDeserializer(val resultReceiver: Shop.OfferQueryResultReceiver) 
                 // Check the ContentType, CloudFlare might answer instead of the API
                 println(contentType.toString())
                 if (contentType.type == Constants.RESPONSE_CONTENT_TYPE && contentType.subtype == Constants.OFFER_QUERY_RESPONSE_CONTENT_SUBTYPE) {
-                    val deserializationResult = Json.nonstrict.parse(
+                    val deserializationResult = Json{ ignoreUnknownKeys = true }.decodeFromString(
                         io.l8.brochr.api.rewe.api_model.OfferQueryResult.serializer(),
                         body.string()
                     )

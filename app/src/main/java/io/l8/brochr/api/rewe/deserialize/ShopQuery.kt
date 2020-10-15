@@ -16,7 +16,7 @@ class ShopQueryDeserializer(val resultReceiver: ShopSearch.ShopQueryResultReceiv
                 // Check the ContentType, CloudFlare might answer instead of the API
                 if (contentType.type == Constants.RESPONSE_CONTENT_TYPE && contentType.subtype == Constants.SHOP_QUERY_RESPONSE_CONTENT_SUBTYPE) {
                     val deserializationResult =
-                        Json.nonstrict.parse(ShopQueryResult.serializer(), body.string())
+                        Json{ ignoreUnknownKeys = true }.decodeFromString(ShopQueryResult.serializer(), body.string())
 
                     body.close()
 
