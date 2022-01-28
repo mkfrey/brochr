@@ -89,7 +89,7 @@ class ShopSearchViewAdapter(private val context: Context) : RecyclerView.Adapter
     }
 
     override fun onBindViewHolder(holder: ShopViewHolder, position: Int) {
-        shops[position]?.let {
+        shops[position].let {
             holder.bind(it, this)
         }
     }

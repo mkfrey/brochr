@@ -23,7 +23,7 @@ class Offer(
             val numericalCategoryIds = arrayListOf<Int>()
 
             categoryMap?.let { map ->
-                offer.categoryIDs?.forEach { category ->
+                offer.categoryIDs.forEach { category ->
                     map[category]?.let { numericalId ->
                         numericalCategoryIds.add(numericalId)
                     }
@@ -37,8 +37,8 @@ class Offer(
                 offer.currency,
                 offer.discount,
                 null,
-                offer._links?.imageXl?.href ?: offer._links?.image?.href,
-                offer._links?.image?.href + "?resize=200px:200px",
+                offer._links.imageXl?.href ?: offer._links.image?.href,
+                offer._links.image?.href + "?resize=200px:200px",
                 numericalCategoryIds.toIntArray()
             )
         }
