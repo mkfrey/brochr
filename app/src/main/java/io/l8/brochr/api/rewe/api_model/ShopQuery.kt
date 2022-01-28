@@ -31,15 +31,11 @@ class Shop(
 @Serializable
 class ShopAddress(
     /**
-     * Street name of the shop location
-     * @example "Musterstraße"
+     * Street name and number of the shop location
+     * @example "Musterstraße 12"
      */
     val street: String,
-    /**
-     * House number as string
-     * @example "12"
-     */
-    val houseNumber: String,
+
     /**
      * Postal code as string
      * @example "87654"
